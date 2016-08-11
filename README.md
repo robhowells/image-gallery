@@ -1,1 +1,1 @@
-Image gallery code snippet
+Image gallery using slick.js

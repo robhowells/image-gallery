@@ -1,1 +1,1 @@
-Example markup and styling for base project
+Image gallery code snippet

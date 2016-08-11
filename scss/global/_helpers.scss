@@ -1,0 +1,154 @@
+/*========================================
+
+	Helper Styles
+	_____________
+
+========================================*/
+
+/*========================================
+
+	Margin Helpers
+
+========================================*/
+
+.mbn {
+	margin-bottom: 0;
+}
+
+.mb {
+	margin-bottom: ($gutterWidthPercent /1.5);
+}
+
+.mb25 { 
+    margin-bottom: 25px
+}
+
+/*========================================
+
+	Transition Helpers
+
+========================================*/
+
+.transition {
+	@include transition;
+}
+
+.transition-fast {
+	@include transitionFast;
+}
+
+/*========================================
+
+	Animation Helpers
+
+========================================*/
+
+/*========================================
+
+	Example Usage
+	--------------------------------------
+
+	.shake {
+	    @include animation('shake 0.5s');
+	}
+
+========================================*/
+
+/*========================================
+
+	List Helpers
+
+========================================*/
+
+.block-list {
+    @include blockList;
+}
+
+.inline-list {
+    @include inlineList;
+}
+
+.styled-list {
+	margin-left: 20px;
+	margin-bottom: 1.5em;
+	li {
+		margin-bottom: 0.5em;
+		&:last-child {
+	        margin-bottom: 0;
+	    }
+	}
+}
+
+.scrollable-on-tablet {
+	@include breakpoint(tablet) {
+	    @include innerScroll;
+	}
+}
+
+.scrollable-on-phablet {
+	@include breakpoint(phablet) {
+		@include innerScroll;
+	}
+}
+
+/*========================================
+
+	Container Helpers
+
+========================================*/
+
+.same-height-children { 
+	display: flex;
+	align-items: stretch;
+	@include breakpoint(phablet) {
+		display: block;
+	} 
+}
+
+/*========================================
+
+	Position helpers
+
+========================================*/
+
+.hidden {
+	display: none;
+}
+
+.hidden-on-mobile {
+    @include breakpoint(phablet) {
+        display: none;
+    }
+}
+
+.shown-on-mobile {
+	display: none;
+	@include breakpoint(phablet) {
+        display: block;
+    }
+}
+
+.display-block {
+	display: block;
+}
+
+.text-center {
+	text-align: center;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/*========================================
+
+	Text Helpers
+
+========================================*/
+
+.text-hidden {
+	font-size: 0;
+    position: absolute;
+    color: transparent;
+    text-indent: -99999px;
+}

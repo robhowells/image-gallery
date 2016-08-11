@@ -1,0 +1,225 @@
+/*========================================
+
+    Mixins
+    _____________
+
+========================================*/
+
+/*========================================
+
+	Cross Browser Opacity
+
+========================================*/
+
+@mixin opacity($trans) {
+	filter: alpha(opactiy=($trans * 100));
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
+	-moz-opacity: $trans;
+	-khtml-opacity: $trans; 
+	opacity: $trans;
+}
+
+/*========================================
+
+	REM Cross Browser Font Size 
+	Calculator
+
+========================================*/
+
+@mixin font-size($sizeValue: 1.6) {
+	font-size: ($sizeValue * 1) + px;
+	font-size: ($sizeValue / 10) + rem;
+}
+
+
+/*========================================
+
+    Cross Browser Vertical Gradient
+
+========================================*/
+
+@mixin vertical-gradient($fromColor, $fromPercent, $toColor, $toPercent) {
+    background-image:     -webkit-linear-gradient(top,  $fromColor $fromPercent, $toColor $toPercent); /* Chrome10-25,Safari5.1-6 */
+    background-image:         -moz-linear-gradient(top,  $fromColor $fromPercent, $toColor $toPercent); /* FF3.6-15 */
+    background-image:           -ms-linear-gradient(top, $fromColor $fromPercent, $toColor $toPercent); /* IE10 */
+    background-image:               -o-linear-gradient(top, $fromColor $fromPercent, $toColor $toPercent); /* Opera 11.10+ */
+    background-image:                   linear-gradient(to bottom,  $fromColor $fromPercent, $toColor $toPercent); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( GradientType=0, StartColorStr='#{ie-hex-str($fromColor)}', EndColorStr='#{ie-hex-str($toColor)}'); /* IE6-9 */
+}
+
+/*========================================
+
+    Cross Browser Horizontal Gradient
+
+========================================*/
+
+@mixin horizontal-gradient($fromColor, $fromPercent, $toColor, $toPercent) {
+    background-image:     -webkit-linear-gradient(left,  $fromColor $fromPercent, $toColor $toPercent); /* Chrome10-25,Safari5.1-6 */
+    background-image:         -moz-linear-gradient(left,  $fromColor $fromPercent, $toColor $toPercent); /* FF3.6-15 */
+    background-image:           -ms-linear-gradient(left, $fromColor $fromPercent, $toColor $toPercent); /* IE10 */
+    background-image:               -o-linear-gradient(left, $fromColor $fromPercent, $toColor $toPercent); /* Opera 11.10+ */
+    background-image:                   linear-gradient(to right,  $fromColor $fromPercent, $toColor $toPercent); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#{ie-hex-str($fromColor)}', EndColorStr='#{ie-hex-str($toColor)}'); /* IE6-9 */
+
+}
+
+/*========================================
+
+    List styles
+
+========================================*/
+
+@mixin blockList {
+    margin-left: 0px;
+    list-style: none;
+    & > li {
+        float: none;
+        display: block;
+    }
+}
+
+@mixin inlineList {
+    margin-left: 0px;
+    list-style: none;
+    & > li {
+        float: left;
+        margin-bottom: 0px;
+    }
+}
+
+/*========================================
+
+    Clearfix
+
+========================================*/
+
+@mixin clear() {
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/*========================================
+
+    Placeholder
+
+========================================*/
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}  
+}
+
+/*========================================
+
+	Transitions
+
+========================================*/
+
+@mixin transition { 
+    transition: all 0.3s;
+}
+
+@mixin transitionFast { 
+    transition: all 0.2s;
+} 
+
+/*========================================
+
+   Background Images
+
+========================================*/
+
+@mixin backgroundImage {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*========================================
+
+   Positioning
+
+========================================*/
+ 
+@mixin centerVertically {
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+/*========================================
+
+    Keyframe animation
+
+========================================*/
+
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+/*========================================
+
+    Text ellipsis
+
+========================================*/
+
+@mixin truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*========================================
+
+   Horizonal Scrolling
+
+========================================*/
+
+@mixin innerScroll {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    & > li {
+        float: none;
+        white-space: normal;
+        display: inline-block;
+    }
+}

@@ -1,0 +1,122 @@
+/*========================================
+
+    Carousel Styles
+    _____________
+
+
+========================================*/
+
+/*========================================
+
+    Image Gallery Carousel
+
+========================================*/
+
+.image-gallery-carousel {
+    @include opacity(0);
+    transition: opacity 0.5s;
+    &.fade-in-simple {
+		@include opacity(1);
+	}
+}
+
+.image-gallery-wrapper {
+    padding: 20px;  
+    position: relative;
+    background: $whiteDefault;
+}
+
+.image-gallery-carousel {
+    width: 70%;
+    float: left;
+    padding: 0 10px 0 5px;
+    @include breakpoint(phablet) {
+        width: 100%;
+        padding: 10px 10px 20px 10px;
+    }
+    &.full-width {
+        width: 100%;
+    }
+}
+
+.image-gallery-controls-wrapper {
+    width: 30%;
+    float: left;
+    @include breakpoint(phablet) {
+        width: 100%;
+    }
+}
+
+/*========================================
+
+	Slick JS Override Styles
+
+========================================*/
+
+@import "../../vendors/slick";
+
+.slick-slide {
+    height: auto;
+}
+
+button.slick-arrow {
+    font-size: 0;
+    color: $primary;
+    cursor: pointer;
+    padding: 5px 15px;
+    @include transition;
+    background: $secondary;
+    z-index: z(default) + 1;
+    @include centerVertically;
+    &:after {
+        top: 0;
+        left: 0;
+    	right: 0;
+        bottom: 0;
+        position: relative;
+        @include transition;
+        vertical-align: bottom;
+        @include font-size(20);
+    }
+    &:hover {
+        transform: translateY(-50%) scale(1.05);
+    }
+}
+
+.slick-prev {
+    left: 0;
+    &:after {
+        content: '<'; //replace with icon font
+    }
+}
+
+.slick-next {
+    right: 0;
+    &:after {
+        content: '>'; //replace with icon font
+    }
+}
+
+
+.image-gallery-controls {
+    .slick-dots {
+        font-size: 0;
+        li {
+            margin: 0;
+            width: 50%;
+            cursor: pointer;
+            @include transition;
+            display: inline-block;
+            padding: 0 10px 5px 10px;
+            &.slick-active {
+                @include opacity(0.4);
+            }
+            &:hover, &:focus {
+                @include opacity(0.8);
+            }
+        }
+    }
+    @include breakpoint(mobile) {
+        width: 100%;
+    }
+}

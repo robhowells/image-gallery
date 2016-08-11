@@ -1,0 +1,55 @@
+/*========================================
+
+    Colour Styles
+    _____________
+
+========================================*/
+
+/*========================================
+
+	Normal Colours
+
+========================================*/
+
+$whiteDefault: #ffffff;  
+$blackDefault: #000000;  
+
+/*========================================
+
+    Main Colours 
+
+========================================*/
+
+$primary:       #2a2b2f; 
+$secondary:     #efefef; 
+$accent:        #34dddd;
+$grey:          #9b9eab;  
+$error:         #FFBABA;
+$success:       #DFF2BF;
+
+/*========================================
+
+    Colour Variations
+
+========================================*/
+
+$primaryVariation1:       #646466; 
+$secondaryVariation1:     #f9f9f9; 
+
+/*========================================
+     
+    Colour Classes
+
+========================================*/
+
+$colorList : primary, secondary, accent, grey, primary-variation-1, secondary-variation-1, white-default, black-default, error, success;
+$colorListVars : $primary, $secondary, $accent, $grey, $primaryVariation1, $secondaryVariation1, $whiteDefault, $blackDefault, $error, $success;
+
+@for $i from 1 through length($colorList) {
+    .bg-#{nth($colorList, $i)} { 
+        background: nth($colorListVars, $i);
+    }
+    .color-#{nth($colorList, $i)} { 
+        color: nth($colorListVars, $i);
+    }
+} 

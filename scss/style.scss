@@ -1,0 +1,40 @@
+/*========================================
+
+	Base Styles
+
+========================================*/
+
+	@import "base/grid";
+	@import "base/normalize";
+	@import "base/base"; 
+
+/*========================================
+
+	Global Styles
+
+========================================*/
+
+	@import "global/colors";
+	@import "global/mixins";
+	@import "global/typography";
+	@import "global/zIndex";
+	@import "global/helpers"; 
+	@import "global/animation";
+
+/*========================================
+
+	Layout Styles
+
+========================================*/
+
+	@import "layout/layout";
+
+	/*========================================
+		Component Styles
+	========================================*/
+	
+	@import "layout/components/carousels";
+
+
+
+	

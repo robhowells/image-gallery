@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Site Name | Site Strapline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:800|Merriweather' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <main role="main">
+        <section>
+            <div class="container row">
+                <div class="twelve columns">
+                    <div class="image-gallery-wrapper clearfix">
+                        <div class="image-gallery-close">
+                            <span class="icon-close"></span>
+                        </div>
+                        <div class="image-gallery-carousel">
+                            <img src="img/lorempixel1.jpg" alt="">
+                            <img src="img/lorempixel2.jpg" alt="">
+                            <img src="img/lorempixel3.jpg" alt="">
+                            <img src="img/lorempixel4.jpg" alt="">
+                        </div>
+                        <div class="image-gallery-controls-wrapper">
+                            <div class="image-gallery-controls"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+    <script src="js/dist/js.min.js"></script>
+    <script>
+        carousels.init('.image-gallery-carousel', 'imageGalleryConfig');
+    </script>
+</body>
+</html>

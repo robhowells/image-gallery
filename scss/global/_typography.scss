@@ -1,0 +1,145 @@
+/*========================================
+
+    Typography Styles
+    _____________
+
+========================================*/
+
+@mixin headingFont() {
+    font-family: 'Raleway', sans-serif;
+}
+
+@mixin bodyFont() {
+    font-family: 'Merriweather', serif;
+}
+
+body {
+    @include bodyFont;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $primary;
+    line-height: 1.2;
+    @include headingFont;
+}
+
+h1 {
+    margin-bottom: 0.5em;
+    @include font-size(60);
+    @include breakpoint(small-desktop) {
+        @include font-size(50);
+    }
+    @include breakpoint(tablet) {
+        @include font-size(40);
+    }
+}
+
+h2 {
+    margin-bottom: 0.75em;
+    @include font-size(45);
+    @include breakpoint(small-desktop) {
+        @include font-size(40);
+    }
+    @include breakpoint(tablet) {
+        @include font-size(30);
+    }
+}
+
+h3 {
+    margin-bottom: 0.75em;
+    @include font-size(35);
+    @include breakpoint(small-desktop) {
+        @include font-size(30);
+    }
+    @include breakpoint(tablet) {
+        @include font-size(25);
+    }
+}
+
+h4 {
+    margin-bottom: 1em;
+    @include font-size(25);
+    @include breakpoint(tablet) {
+        @include font-size(22);
+    }
+}
+
+h5 {
+    margin-bottom: 1em;
+    @include font-size(20);
+}
+
+h6 {
+    margin-bottom: 1em;
+    @include font-size(18);
+}
+
+p, li, a {
+    line-height: 2;
+    color: $primary;
+    margin-bottom: 1em;
+    @include font-size(18);
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &.xs-text {
+        @include font-size(14);
+        @include breakpoint(small-desktop) {
+            @include font-size(13);
+        }
+        @include breakpoint(tablet) {
+            @include font-size(12);
+        }
+    }
+    &.sm-text {
+        @include font-size(16);
+    }
+    &.xl-text {
+        @include font-size(20);
+        @include breakpoint(small-desktop) {
+            @include font-size(19);
+        }
+        @include breakpoint(tablet) {
+            @include font-size(18);
+        }
+    }
+    @include breakpoint(small-desktop) {
+        @include font-size(17);
+    }
+    @include breakpoint(tablet) {
+        @include font-size(16);
+    }
+    @include breakpoint(phablet) {
+        @include font-size(15);
+    }
+}
+
+a {
+    &:hover {
+        color: $accent;
+    }
+}
+
+/*========================================
+
+	Typography Helpers
+
+========================================*/
+
+.heading-font {
+    @include headingFont;
+}
+
+.body-font {
+    @include bodyFont;
+}
+
+@mixin lg-letter-space {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@mixin xl-letter-space {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}

@@ -1,1 +1,3 @@
-Image gallery using slick.js
+#Image Gallery
+
+Image gallery template using slick.js

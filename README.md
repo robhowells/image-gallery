@@ -1,1 +1,2 @@
-Example markup and styling for base project
+#Image gallery
+Image gallery template using slick.js (http://kenwheeler.github.io/slick/)

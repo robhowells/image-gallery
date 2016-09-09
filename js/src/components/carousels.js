@@ -19,8 +19,9 @@ var carousels = (function ($) {
                 }
             ],
             customPaging: function(slider, i) {
-                var thumbnail = $(slider.$slides[i]).context.src;
-                return '<img src=" ' + thumbnail + '">';
+                var thumbnail = $(slider.$slides[i]).context.style.backgroundImage,
+                    bgImg = thumbnail.replace('url(','').replace(')','').replace(/\"/gi, "")
+                return '<div class="image-gallery-control-slide" style="background-image:url(' + bgImg + ')"></div>';
             }
         }
     };

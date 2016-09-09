@@ -12,18 +12,13 @@
 
 ========================================*/
 
-.image-gallery-carousel {
-    @include opacity(0);
-    transition: opacity 0.5s;
-    &.fade-in-simple {
-		@include opacity(1);
-	}
-}
-
 .image-gallery-wrapper {
     padding: 20px;  
-    position: relative;
     background: $whiteDefault;
+    position: relative;
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
 }
 
 .image-gallery-carousel {
@@ -34,17 +29,41 @@
         width: 100%;
         padding: 10px 10px 20px 10px;
     }
-    &.full-width {
-        width: 100%;
+    @include breakpoint(mobile) {
+        padding: 10px 10px 5px 10px;
     }
+    &.full-width {
+        width: 100%; 
+    }
+}
+
+.image-gallery-carousel-slide {
+    background-color: $grey;
+    @include backgroundImage;
+    @include aspect-ratio(815, 535);
 }
 
 .image-gallery-controls-wrapper {
     width: 30%;
     float: left;
+    overflow-y: scroll;
+    @include aspect-ratio(358, 525); 
     @include breakpoint(phablet) {
         width: 100%;
+        @include aspect-ratio(815, 535);
     }
+}
+
+.image-gallery-controls {
+    top: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.image-gallery-control-slide {
+    background-color: $grey;
+    @include backgroundImage;
+    @include aspect-ratio(185, 125);
 }
 
 /*========================================
